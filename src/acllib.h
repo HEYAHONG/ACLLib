@@ -22,6 +22,7 @@
 //				    2010 by Lan Huidong
 //	Revised		2012 by Li Rui
 //  Modified  2014 by Weng Kai for MOOC
+//	Modified   2019 by HYH for Test
 ////////////////////////////////////////////////////////////////
 
 /*
@@ -133,6 +134,10 @@ typedef void(*TimerEventCallback) (int timerID);
 extern "C" {
 #endif
 
+	
+	int Start_WinMain();
+	int Start_WinMain_Hide_Console();
+	
 	int Setup(void);
 
 	// 

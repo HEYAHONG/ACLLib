@@ -21,6 +21,7 @@
 //				    2010 by Lan Huidong
 //	Revised		2012 by Li Rui
 //  Modified  2014 by Weng Kai for MOOC
+//	Modified   2019 by HYH for Test
 ////////////////////////////////////////////////////////////////
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -148,6 +149,31 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 		DispatchMessage (&msg);
 	}
 	return msg.wParam;
+}
+
+int Start_WinMain()
+{
+	HWND hwnd;
+
+	if(hwnd=FindWindow("ConsoleWindowClass",NULL)) //???????
+	{
+		//ShowWindow(hwnd,SW_HIDE); //???????
+		 return WinMain((HINSTANCE)GetWindowLong(hwnd,GWL_HINSTANCE),NULL,"",SW_NORMAL);
+		
+	}
+	return -1;
+}
+int Start_WinMain_Hide_Console()
+{
+	HWND hwnd;
+
+	if(hwnd=FindWindow("ConsoleWindowClass",NULL)) //???????
+	{
+		ShowWindow(hwnd,SW_HIDE); //???????
+		return WinMain((HINSTANCE)GetWindowLong(hwnd,GWL_HINSTANCE),NULL,"",SW_NORMAL);
+		
+	}
+	return -1;
 }
 
 //
