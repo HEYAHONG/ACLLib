@@ -10,7 +10,7 @@ Console_CFLAGS = -Wl,--subsystem,console
 
 SRC+= $(CFLAGS)
 
-all : keyboard mouse_move mouse_click image clock char clock_main clock_main_hide_console
+all : keyboard mouse_move mouse_click image clock char clock_main clock_main_hide_console clock_main_ChangeSetup
 
 keyboard :
 	gcc $(SRC) $(Windows_CFLAGS) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
@@ -29,6 +29,10 @@ clock :
 	
 clock_main :
 	gcc $(SRC) $(Console_CFLAGS) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
+
+clock_main_ChangeSetup :
+	gcc $(SRC) $(Console_CFLAGS) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
+	
 clock_main_hide_console :
 	gcc $(SRC) $(Console_CFLAGS) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
 	

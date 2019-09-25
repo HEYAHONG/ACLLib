@@ -130,17 +130,21 @@ typedef void(*CharEventCallback) (char c);
 typedef void(*MouseEventCallback) (int x, int y, int button, int event);
 typedef void(*TimerEventCallback) (int timerID);
 
+typedef int (*Setup_fun_t)(void);
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-	
+
 	int Start_WinMain();
 	int Start_WinMain_Hide_Console();
-	
-	int Setup(void);
+	int Stop_Window();
 
-	// 
+	int Setup(void);
+    void ChangeSetup(Setup_fun_t fun);
+
+	//
 	void initWindow(const char title[], int left, int top, int width, int height);
 	void msgBox(const char title[], const char text[], int flag);
 
@@ -224,7 +228,7 @@ extern "C" {
 	void putImageScale(ACL_Image *pImage, int x, int y, int width, int height);
 	void putImageTransparent(ACL_Image *pImage, int x, int y, int width, int height, ACL_Color bkColor);
 
-	//void putImageEx(ACL_Image *pImage,int dx,int dy,int dw,int dh, 
+	//void putImageEx(ACL_Image *pImage,int dx,int dy,int dw,int dh,
 	//	int sx,int sy,int sw,int sh);
 
 	//void setTransparentMode(ACL_TransparenetMode);
